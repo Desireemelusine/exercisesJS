@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>tutorial</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+  </head>
+  <body>
+    <h2>W3</h2>
+    <div class="discover">
+      <p id="hello">What am I thinking rigth now? </p>
+      <button type="button" onclick='document.getElementById("hello").innerHTML = "That is time for coffee!"'>Discover</button>
+      <br>
+    </div>
+
+    <div class="circle">
+      <br>
+      <img id="circle" src="on.jpg" alt="circle" style="width: 10%">
+      <button type="button" onclick="document.getElementById('circle').src='on.png'">Turn On</button>
+      <button type="button" onclick="document.getElementById('circle').src='off.png'">Turn Off</button>
+    </div>
+
+    <div class="">
+      <p id="hide">Do you want to play again?</p>
+      <p id="show" style="display:none">Yeah! Let's play!</p>
+      <button type="button" onclick="document.getElementById('hide').style.display='none'">Nope!</button>
+      <button type="button" onclick="document.getElementById('show').style.display= 'block'">Yep!</button>
+
+      </div>
+
+    <h5 id="a"></h5>
+    <hr>
+
+    <h2>Function</h2>
+    <p id="f"></p>
+    <span>Temperature in Celsius</span>
+    <p id="celsius">Temperature</p>
+    <p id="car"></p>
+    <hr>
+    <h2>Objects</h2>
+    <p id="favoriteCar"></p>
+    <p id="person"></p>
+    <hr>
+    <h2>Events</h2>
+    <button class="button" type="button" onclick="displayDate()">What day and time is it now?</button>
+    <p id="date"></p>
+    <p id="mouse" onmouseover="changeColor()" onmouseout="newColor()"> I prefer color! Don't you ?</p>
+    <hr>
+    <h2>String</h2>
+    <p id="text"></p>
+    <span id="length"></span> <br>
+    <span id="indexOf1"></span><br>
+    <span id="replace"></span><br>
+    <span id="lowSplit"></span><br>
+
+
+
+    <script>
+
+      /*---String---*/
+      var text = "We launch a new start up EVERY 6 months. Yes we do it!";
+      var v = text.length;
+      console.log("length: " + v);
+      var st = text.indexOf("start");
+      console.log("index of start:"+ st);
+      var stm = text.indexOf("moi");
+      console.log("index of moi:"+ stm);
+      var stwe = text.indexOf("we", 16);
+      var search = text.search("months");
+      var ntext = text.slice(10, 25);
+      var ntext2 = text.slice(43);
+      var repl = text.replace("6", "8");
+      var upp = text.toUpperCase();
+      var low = text. toLowerCase();
+      var ch = text.charAt(18);
+      var prp = text[18];
+      var textArray = text.split(".");
+
+      document.getElementById("text").innerHTML = text;
+
+      function displayLength(){
+        var y;
+        var fText = "we launch a new start up \"EVERY\" 6 months. Yes we do it!";
+        y = fText.length;
+        return y;
+      }
+      document.getElementById("length").innerHTML = "Lenght: " + displayLength();
+      console.log(displayLength());
+
+      function indexOf1() {
+        var x;
+        x = text.indexOf("we",16);
+        return x;
+      }
+      document.getElementById("indexOf1").innerHTML = "Index of (we,16): " + indexOf1();
+      console.log(indexOf1());
+
+      function replace() {
+        var x;
+        x = text.replace("6", "8");
+        return x;
+      }
+      document.getElementById("replace").innerHTML = replace();
+
+      function lowSplit() {
+        var x;
+        x = text.toLowerCase();
+        x = text.split(".");
+        x = x[1];
+        return x;
+      }
+      document.getElementById("lowSplit").innerHTML= (lowSplit());
+
+      console.log("second index of we:"+ stwe);
+      console.log("search for month:" + search);
+      console.log("slice the string: " + ntext);
+      console.log("slice the string: " + ntext2);
+      console.log("let's replace 6 for: " + repl);
+      console.log("Upper Case: "+ upp);
+      console.log("Low Case: " + low);
+      console.log("Character: "+ ch);
+      console.log("Property Acess: "+ prp);
+      console.log("String to Array: " + textArray[1]);
+
+      /*----Events---*/
+      function displayDate(){
+        return document.getElementById("date").innerHTML = Date();
+      }
+
+      function changeColor() {
+        return document.getElementById("mouse").style.color = "#FA8072";
+      }
+
+      function newColor() {
+        return document.getElementById("mouse").style.color = "#5F9EA0";
+      }
+
+      /*----Object---*/
+      var car = {carName: "Fiat", model: "500", color:"white"};
+      document.getElementById("favoriteCar").innerHTML = "The car I like the most is a " + car.carName + ", model" + car.model + " and color " + car.color;
+
+       var joana = {
+         country : "Portugal",
+         city: "Lisboa",
+         day: "25th of January",
+         name: "Joana",
+         lastName: "Silva",
+         fullName: function(){
+           return this.name + " " + this.lastName;
+         }
+       }
+       document.getElementById("person").innerHTML = "Her name is " + joana.fullName() + ", " + "and she is from " +  joana.country;
+
+       /*----Function---*/
+       function myFunction(x, y) {
+         return x + y;
+       }
+       document.getElementById("f").innerHTML = myFunction( 3, 4);
+
+       function celsius(fahrenheit) {
+         return ( 5 / 9 ) * (fahrenheit - 32);
+       }
+       document.getElementById("celsius").innerHTML = celsius(80);
+
+       function myCar(carName){
+        var x = " model: white, x-2017";
+         return carName + x;
+       }
+       document.getElementById("car").innerHTML = myCar("Tesla");
+
+      /*--Introduction---*/
+       var end = " End of this chapter, GoodBye!";
+       document.getElementById('a').innerHTML = end;
+
+    </script>
+
+  </body>
+</html>

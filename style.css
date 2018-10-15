@@ -1,0 +1,32 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.discover {
+  font-size: 1em;
+}
+
+.discover p {
+  float: left;
+}
+
+.discover button {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0.5em;
+}
+
+.circle button {
+  color: #ffff;
+  background-color: #ccccff;
+  border: none;
+  font-size: 1em;
+  vertical-align: 2em;
+}
+
+.button {
+  color: #ffff;
+  background-color: #ccccff;
+  border: none;
+  font-size: 1.2em;
+}
