@@ -1,39 +1,18 @@
-var x = 5;
-var y = 4 ;
-var z = x + y;
-console.log(z);
-
-var name, surname, fullName;
-
-name = "John";
-surname = "Yung";
-fullName = name + " " + surname;
-fullName += "!";
-console.log(fullName);
-
-var x = 5 + 2 + "3";
-var y = "5" + 2 + 3 ;
-console.log(x);  //string
-console.log(y);  //string
-
-var w = 5;
-w += 5;
-console.log(w);
-
-var f = 5;
-f ++;
-console.log(f);
-f --;
-var i = f;
-console.log(i);
-
-// Array
- var a = ["A", "B", "C"];
-
- //Object and the 2 properties
- var ob = {
-  firstName: "Maria",
-  lastName: "Silva"
-};
- ob = null; // object is empty( no value) now but still is an Object, good for when you want to clean your obj to get a new info data
- ob = undefined; // now  value and Object is undefined
+/*Generate a random number between 1 and 100.
+Record the turn number the player is on. Start it on 1.
+Provide the player with a way to guess what the number is.
+Once a guess has been submitted first record it somewhere so the user can see their previous guesses.
+Next, check whether it is the correct number.
+If it is correct:
+Display congratulations message.
+Stop the player from being able to enter more guesses (this would mess the game up).
+Display control allowing the player to restart the game.
+If it is wrong and the player has turns left:
+Tell the player they are wrong.
+Allow them to enter another guess.
+Increment the turn number by 1.
+If it is wrong and the player has no turns left:
+Tell the player it is game over.
+Stop the player from being able to enter more guesses (this would mess the game up).
+Display control allowing the player to restart the game.
+Once the game restarts, make sure the game logic and UI are completely reset, then go back to step 1.*/
