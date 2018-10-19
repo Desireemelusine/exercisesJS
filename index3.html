@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Start and Stop</title>
+    <link rel="stylesheet" href="style3.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  </head>
+  <body>
+    <button type="button">Start Machine</button>
+    <p>Machine is not working</p>
+
+    <button class="helloBtn" type="button">Press Here</button>
+
+    <ul class="greetings"></ul>
+    <ul class="cities"></ul>
+    <ul class="train"></ul>
+    <ul class="listBuy">
+      <p></p>
+    </ul>
+
+    <ul class= "search">
+      <label for="">What are you searching?</label>
+      <input type="text" name="" value="">
+      <button type="button" name="button">Search</button>
+    </ul>
+
+
+    <script  type="text/javascript">
+      var btn = document.querySelector("button");
+      var txt = document.querySelector("p");
+
+      btn.addEventListener('click', startStop);
+
+      function startStop() {
+        if (btn.textContent === "Start Machine") {
+        txt.textContent = "Machine is working";
+        btn.textContent = "Stop Machine";
+      } else if (btn.textContent === "Stop Machine") {
+        txt.textContent = "Machine is not working";
+        btn.textContent = "Start Machine";
+        }
+      }
+      /*---Hello button--*/
+      var helloBtn =  document.querySelector(".helloBtn");
+      helloBtn.addEventListener('click', hello);
+
+      function hello() {
+        var name = prompt('What is your name ?');
+        alert("Hello " + name + "!")
+      }
+      /*----Greetings---*/
+
+      var list = document.querySelector(".greetings");
+      list.innerHTML = " ";
+      var greetings = ['Happy Birthday!',
+                 'Merry Christmas my love',
+                 'A happy Christmas to all the family',
+                 'You\'re all I want for Christmas',
+                 'Get well soon'];
+    for (var i = 0; i < greetings.length; i++) {
+       var christmas = greetings[i];
+       console.log(christmas);
+       //if inside my array[i],  THERE IS (!== -1) The word "Christmas"
+       if (greetings[i].indexOf("Christmas") !== -1) {
+          var listChristmas = document.createElement("li");
+          listChristmas.textContent = christmas;
+          list.appendChild(listChristmas);
+       }
+    }
+    /*----city List ----*/
+    var list = document.querySelector('.cities');
+    list.innerHTML = '';
+    var cities = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
+    for (var i = 0; i < cities.length; i++) {
+      var listCities = cities[i];
+      var lowList= listCities.toLowerCase();
+      var lowListCities = document.createElement("li");
+      lowListCities.textContent = lowList;
+      list.appendChild(lowListCities);
+    }
+
+    /*-----new string from old parts-------*/
+    var list = document.querySelector('.train');
+     list.innerHTML = '';
+     var stations = ['MAN675847583748sjt567654;Manchester Piccadilly',
+                     'GNF576746573fhdg4737dh4;Greenfield',
+                     'LIV5hg65hd737456236dch46dg4;Liverpool Lime Street',
+                     'SYB4f65hf75f736463;Stalybridge',
+                     'HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield'];
+      for (var i = 0; i < stations.length; i++) {
+        var stationCode = stations[i];
+        var trainCode = stationCode.slice(0,3);
+        var destination = stationCode.split(";");
+        var finalDestination = destination[1];
+        console.log(finalDestination);
+
+        var trainDestination = document.createElement("li");
+        trainDestination.textContent = trainCode + " " + finalDestination;
+        list.appendChild(trainDestination);
+      }
+      /* --- list---*/
+      var list = document.querySelector('.listBuy');
+      var totalBox = document.querySelector('.listBuy p');
+      var total = 0;
+      list.innerHTML = '';
+      //totalBox.textContent = '';
+      var products = ['Underpants:6.99', 'Socks:5.99', 'T-shirt:14.99', 'Trousers:31.99', 'Shoes:23.99'];
+      for (var i = 0; i < products.length; i++) {
+      var item = products[i];
+      var itemSplit = item.split(":");
+      var itemName = itemSplit[0];
+      var itemPrice = itemSplit[1];
+      var price = Number(itemPrice);
+      total += price;
+      console.log(total);
+
+      var listItens = document.createElement("li");
+      listItens.textContent = itemName + ": $ " + itemPrice;
+      list.appendChild(listItens);
+      totalBox.textContent = "Total: $" + total.toFixed(2);
+      }
+
+      /*----search--- register max 5 */
+      var list = document.querySelector('.search ul');
+      var searchInput = document.querySelector('.search input');
+      var searchBtn = document.querySelector('.search button');
+      // empty the list so that we don't display duplicate entries
+      // the display is regenerated every time a search term is entered.
+      list.innerHTML = '';
+      //entry search string
+      var myHistory = [];
+
+      searchBtn.onclick = function() {
+        // rule
+        if (searchInput.value !== '') {
+          myHistory.unshift(searchInput.value);
+
+          list.innerHTML = '';
+
+        for (var i = 0; i < myHistory.length; i++) {
+           var txt = myHistory[i];
+           var listTxt = document.createElement("li");
+           listTxt.textContent = txt;
+           list.appendChild(listTxt);
+        }
+
+        if (myHistory.length >= 5) {
+          myHistory.pop();
+        }
+
+        searchInput.value = '';
+        searchInput.focus();
+        }
+      }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>
